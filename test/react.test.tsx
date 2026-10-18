@@ -24,9 +24,11 @@ function stubRenderer(renderer: string) {
 async function mount() {
   const host = document.createElement('div');
   const root = createRoot(host);
-  await act(async () => { root.render(<Scene />); });
-  // The probe waits for an idle moment (jsdom has no requestIdleCallback: a 1 ms timer).
-  await act(async () => { await new Promise((r) => setTimeout(r, 20)); });
+  // One act for render and the idle probe (jsdom has no requestIdleCallback: a 1 ms timer).
+  await act(async () => {
+    root.render(<Scene />);
+    await new Promise((r) => setTimeout(r, 20));
+  });
   const text = host.textContent;
   root.unmount();
   return text;
