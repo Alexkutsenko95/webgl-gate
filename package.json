@@ -1,6 +1,6 @@
 {
   "name": "webgl-gate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Skip your WebGL bundle when the page is rendered by the CPU (SwiftShader, llvmpipe, Basic Render). Under 1 kB, no network, no benchmark tables.",
   "keywords": [
     "webgl",

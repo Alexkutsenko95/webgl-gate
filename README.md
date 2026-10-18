@@ -2,6 +2,10 @@
 
 Skip your WebGL bundle when the page is drawn by the CPU.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Alexkutsenko95/webgl-gate/main/assets/webgl-gate-card.png" width="600" alt="Probe time in headless Chrome: 10 to 24 ms on a real GPU, so the scene loads; 1.4 to 1.7 s on SwiftShader, the CPU rasterizer PageSpeed uses, so the scene bundle is never downloaded.">
+</p>
+
 Lighthouse and PageSpeed Insights measure mobile pages on **SwiftShader**, a software rasterizer. So do many
 virtual machines and remote desktops, and so does any browser with hardware acceleration switched off. There a
 PixiJS or three.js scene doesn't just run slowly. Downloading and parsing its bundle alone costs main-thread time,
