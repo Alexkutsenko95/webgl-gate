@@ -24,13 +24,16 @@ function stubRenderer(renderer: string) {
 async function mount() {
   const host = document.createElement('div');
   const root = createRoot(host);
-  // One act for render and the idle probe (jsdom has no requestIdleCallback: a 1 ms timer).
-  await act(async () => {
-    root.render(<Scene />);
-    await new Promise((r) => setTimeout(r, 20));
-  });
+  // jsdom has no requestIdleCallback, so the idle probe is a 1 ms timer: run it under fake timers, inside act.
+  vi.useFakeTimers();
+  try {
+    await act(async () => { root.render(<Scene />); });
+    await act(async () => { await vi.advanceTimersByTimeAsync(5); });
+  } finally {
+    vi.useRealTimers();
+  }
   const text = host.textContent;
-  root.unmount();
+  act(() => { root.unmount(); });
   return text;
 }
 
