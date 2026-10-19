@@ -189,6 +189,8 @@ path too.
 This is the gate from [kutsikgames.com](https://kutsikgames.com), a game studio site with live PixiJS covers.
 Together with inlined critical CSS and responsive AVIF covers, it took the site's mobile PageSpeed score from 78
 (LCP 4.2 s) to 100 (LCP 1.7 s, TBT 0 ms). The gate is one of those changes, not all of them.
+The full story, with the measurements, is on the studio blog:
+[100 on PageSpeed with live WebGL, and the small gate behind it](https://kutsikgames.com/en/blog/webgl-gate/).
 
 ## When to use something else
 
